@@ -1,0 +1,11 @@
+create dirs -> frontend, backend
+cd frontend
+npm create vite@latest . -> React, JS
+npm install
+npm run dev
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm install react-router-dom react-hot-toast react-icons
+
+// flowbite for ract tables, butns, also timeline(line thing)
+// tailwind css glass morphism generator - glass effects

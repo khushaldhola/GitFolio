@@ -22,7 +22,8 @@ const HomePage = () => {
 		try {
 			const userRes = await fetch(`https://api.github.com/users/${username}`, {
 				headers:{
-					authorization: `token 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`
+					authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
+					// authorization: `token directly pasted api here/same as env`
 				}
 			});
 			const userProfile = await userRes.json();

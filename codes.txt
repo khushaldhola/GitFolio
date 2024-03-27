@@ -9,3 +9,12 @@ npm install react-router-dom react-hot-toast react-icons
 
 // flowbite for ract tables, butns, also timeline(line thing)
 // tailwind css glass morphism generator - glass effects
+
+https://api.github.com/ - visit to understand github api
+
+https://react-hot-toast.com/ - loader/spinner 
+
+60 requests per hour for unauthenticated users, 5k for authed - https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28
+gtihub-> dev sett -> personal access tokens -> classic -> gen -> name: GitFolio_ -> scope: repo -> gen 
+
+.env is not a safe opt to store token usr can see through inspect ( inspect -> assets -> js file - search token...)

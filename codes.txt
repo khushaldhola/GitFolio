@@ -18,3 +18,15 @@ https://react-hot-toast.com/ - loader/spinner
 gtihub-> dev sett -> personal access tokens -> classic -> gen -> name: GitFolio_ -> scope: repo -> gen 
 
 .env is not a safe opt to store token usr can see through inspect ( inspect -> assets -> js file - search token...)
+
+npm init -y -- in root dir -- PS E:\Learning\React TypeScript\00_GitFolio - Mern Stack Project _ GitHub like app> 
+npm i express cors mongoose dotenv -- same in root
+
+move .gitignore file to root from frontend
+npm i nodemon --save-dev --> after writing     "dev": "nodemon server.js"   --> "dev": "nodemon backend/server.js" 
+
+npm run dev -- in root as well to start back server
+
+api in files used |-> backend-controller-user.controller.js, HomePG, ExplorePG
+
+deleted .env from frontend cause now i am using server.js in backend to handle API requests

@@ -20,24 +20,30 @@ const HomePage = () => {
 	const getUserProfileAndRepos = useCallback(async (username = "github") => {
 		setLoading(true); 
 		try {
-			const userRes = await fetch(`https://api.github.com/users/${username}`, {
-				headers:{
-					authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
-					// authorization: `token directly pasted api here/same as env`
-				}
-			});
-			const userProfile = await userRes.json();
+			const res = await fetch(`http://localhost:5000/api/users/profile/${username}`);
+			const {repos, userProfile} = await res.json();
 			setUserProfile(userProfile);
+			// at first gettin cors error so use cors in server to solve
+			// const userRes = await fetch(`https://api.github.com/users/${username}`, {
+			// 	headers:{
+			// 		authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
+			// 	},
+			// });
+			// // authorization: `token directly pasted api here/same as env` , with this header included sometimes it doesnt work
+			// const userProfile = await userRes.json();
+			// setUserProfile(userProfile);
+			// console.log(userRes)
 	
-			const repoRes = await fetch(userProfile.repos_url);
-			const repos = await repoRes.json();
-
+			// const repoRes = await fetch(userProfile.repos_url);
+			// const repos = await repoRes.json();
 			repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
 			setRepos(repos);
+			// console.log("repos: ",repos)
+
+
 	
-			// console.log('userProfile: ', userProfile);
-			// console.log('userRepo: ', repos);
+			// console.log('HMPG - userProfile: ', userProfile);
+			// console.log('HMPG - userRepo: ', repos);
 			return { userProfile, repos }
 			
 		} catch (error) {

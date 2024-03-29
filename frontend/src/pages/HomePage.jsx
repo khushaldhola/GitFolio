@@ -20,7 +20,7 @@ const HomePage = () => {
 	const getUserProfileAndRepos = useCallback(async (username = "github") => {
 		setLoading(true); 
 		try {
-			const res = await fetch(`http://localhost:5000/api/users/profile/${username}`);
+			const res = await fetch(`/api/users/profile/${username}`);
 			const {repos, userProfile} = await res.json();
 			// at first gettin cors error so use cors in server to solve
 			// const userRes = await fetch(`https://api.github.com/users/${username}`, {

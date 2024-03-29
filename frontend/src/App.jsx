@@ -16,6 +16,8 @@ function App() {
   // console.log("App.jsx, AuthUser: ", authUser)
   // now it's global so we can access it from anywhere
 
+  if (loading) return null; // when we refresh we do not wants to pass to home pg everytime so,
+
   return (
       <div className="flex text-red-900">
         <Sidebar />

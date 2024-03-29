@@ -13,7 +13,7 @@ const ExplorePage = () => {
 		setLoading(true);
 		setRepos([]);
 		try {
-			const res = await fetch(`http://localhost:5000/api/explore/repos/${language}`);
+			const res = await fetch(`/api/explore/repos/${language}`);
 			const {repos} = await res.json();
 			// const res = await fetch(`https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc&per_page=10`, {
 			// 	headers:{

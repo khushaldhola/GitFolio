@@ -53,3 +53,6 @@ http://localhost:5000/api/auth/github/callback
 
 if dont want to write http://localhost:5000 every time -> vite.config.js -> add proxy:{"http://localhost:5000/api":{target: "http://localhost:5000"}}
 somehow i got error while i didnt add proxy in vite and i was wordering what could possibly be wrong, but as soon as i add proxy voila i get user data means something....
+
+commit -/M working passport auth
+now like functionality

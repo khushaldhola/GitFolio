@@ -6,10 +6,12 @@ import { MdOutlineTravelExplore  } from "react-icons/md";
 import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 import Logout from "./Logout";
+import { useAuthContext } from '../context/AuthContext';
 
 
 const Sidebar = () => {
-  const authUser = false;
+//   const authUser = true;
+  const {authUser} = useAuthContext();
   
   return (
     <aside className='flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r border-l-0 border-t-0 border-b-0 bg-glass rounded-md bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-30 border border-gray-50/20 hover:bg-gray-100/10 duration-300

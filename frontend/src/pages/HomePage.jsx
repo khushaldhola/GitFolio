@@ -16,16 +16,15 @@ const HomePage = () => {
 	const [sortType, setSortType] = useState("recent");
 	
 	// console.log('here')
-	// console.log(username)
+	// console.log(profile)
 	const getUserProfileAndRepos = useCallback(async (username = "github") => {
 		setLoading(true); 
 		try {
 			const res = await fetch(`http://localhost:5000/api/users/profile/${username}`);
 			const {repos, userProfile} = await res.json();
-			setUserProfile(userProfile);
 			// at first gettin cors error so use cors in server to solve
 			// const userRes = await fetch(`https://api.github.com/users/${username}`, {
-			// 	headers:{
+				// 	headers:{
 			// 		authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`
 			// 	},
 			// });
@@ -33,11 +32,12 @@ const HomePage = () => {
 			// const userProfile = await userRes.json();
 			// setUserProfile(userProfile);
 			// console.log(userRes)
-	
+			
 			// const repoRes = await fetch(userProfile.repos_url);
 			// const repos = await repoRes.json();
 			repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 			setRepos(repos);
+			setUserProfile(userProfile);
 			// console.log("repos: ",repos)
 
 
@@ -54,7 +54,7 @@ const HomePage = () => {
 	}, []);
 
 	useEffect(() => {
-		getUserProfileAndRepos()
+		getUserProfileAndRepos();
 	}, [getUserProfileAndRepos]);
 
 	const onSearch = async (e, username) => {

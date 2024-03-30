@@ -61,4 +61,15 @@ npm install node-fetch - to implement dir down func
 
 after makeing some changes in server.js and npm run build from frontend cd.. it should work by only one npm run dev, 
 keep in mind also need to change git OAuth urls which i can do after getting deploy url... 
-hosting serever used is render.com > new > web service > deploy from git repo
+hosting serever used is render.com > new > web service > deploy from git repo > connect repo,
+
+change build cmnd to - npm run build, & for start - npm run start, put env file key vals
+we are adding client base url once we deploy it so we can get url > create web service
+
+and update the OAuth urls to -> https://gitfolio-37ek.onrender.com/
+and add CLIENT_BASE_URL=https://gitfolio-37ek.onrender.com/ in render env as well, also update callback url
+- gti add .
+- git commit -m "callback url & Docs Updted"
+- git push
+
+and after that render again deploy it so i have sort err that i can fix and push👍.

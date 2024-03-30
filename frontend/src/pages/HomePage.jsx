@@ -6,6 +6,7 @@ import SortRepos from "../components/SortRepos"
 import ProfileInfo from "../components/ProfileInfo"
 import Repos from "../components/Repos"
 import Spinner from "../components/Spinner"
+import DownParticularRepo from "../components/DownParticularRepo"
 
 const HomePage = () => {
 
@@ -93,6 +94,7 @@ const HomePage = () => {
 			<div className='flex gap-4 flex-col lg:flex-row justify-center items-start'>
 				{userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
 				{!loading && <Repos repos={repos}/>}
+				{!loading && <DownParticularRepo/>}
 			</div>
 		</div>
 	);

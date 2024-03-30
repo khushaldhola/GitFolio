@@ -56,3 +56,5 @@ somehow i got error while i didnt add proxy in vite and i was wordering what cou
 
 commit -/M working passport auth
 now like functionality
+
+npm install node-fetch - to implement dir down func

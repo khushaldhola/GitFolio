@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import passport from "passport";
 import session from "express-session";
+import path from "path";
 
 import "./passport/github.auth.js"
 
@@ -14,6 +15,9 @@ import connectMongoDB from "./db/connectMongoDB.js";
 import downloadRoutes from './routes/download.route.js'; 
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+const __dirname = path.resolve();
+// console.log(__dirname); gives whole root route path
 
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 // Initialize Passport!  Also use passport.session() middleware, to support
@@ -25,16 +29,23 @@ app.use(cors());
 
 dotenv.config();
 
-app.get("/", (req, res) => {
-    res.send("Server is ready");
-})
+// app.get("/", (req, res) => {
+//     res.send("Server is ready");
+// })
 
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/explore", eploreRoutes)
 app.use('/api/download', downloadRoutes);
+// Static route
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// dynamic 
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
-app.listen(5000,() => {
-    console.log("Server started on http://localhost:5000");
+app.listen(PORT,() => {
+    console.log(`Server started on http://localhost:${PORT}`);
     connectMongoDB();
+    // console.log("Server started on http://localhost:5000");
 })

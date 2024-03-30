@@ -58,3 +58,7 @@ commit -/M working passport auth
 now like functionality
 
 npm install node-fetch - to implement dir down func
+
+after makeing some changes in server.js and npm run build from frontend cd.. it should work by only one npm run dev, 
+keep in mind also need to change git OAuth urls which i can do after getting deploy url... 
+hosting serever used is render.com > new > web service > deploy from git repo

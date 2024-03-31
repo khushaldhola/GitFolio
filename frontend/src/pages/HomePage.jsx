@@ -88,13 +88,13 @@ const HomePage = () => {
 	// console.log("userProfile", userProfile)
 	return (
 		<div className='m-4'>
-			{loading && <Spinner />}
 			<Search onSearch={onSearch} />
 			{repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
 			<div className='flex gap-4 flex-col lg:flex-row justify-center items-start'>
 				{userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
 				{!loading && <Repos repos={repos}/>}
-				{!loading && <DownParticularRepo/>}
+				{loading && <Spinner />}
+				{/* {!loading && <DownParticularRepo/>} */}
 			</div>
 		</div>
 	);

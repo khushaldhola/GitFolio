@@ -74,15 +74,18 @@ const HomePage = () => {
 	};
 
 	const onSort = (sortType) => {
+		let sortedRepos = [...repos]; // Create a new array to store sorted repos
+	
 		if (sortType === "recent") {
-			repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
+			sortedRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
 		} else if (sortType === "stars") {
-			repos.sort((a, b) => b.stargazers_count - a.stargazers_count); //descending, most stars first
+			sortedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count); //descending, most stars first
 		} else if (sortType === "forks") {
-			repos.sort((a, b) => b.forks_count - a.forks_count); //descending, most forks first
+			sortedRepos.sort((a, b) => b.forks_count - a.forks_count); //descending, most forks first
 		}
+	
 		setSortType(sortType);
-		setRepos([...repos]);
+		setRepos(sortedRepos); // Update state with the new sorted array
 	};
 
 	// console.log("userProfile", userProfile)

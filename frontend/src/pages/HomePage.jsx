@@ -7,6 +7,7 @@ import ProfileInfo from "../components/ProfileInfo"
 import Repos from "../components/Repos"
 import Spinner from "../components/Spinner"
 import DownParticularRepo from "../components/DownParticularRepo"
+import { useAuthContext } from "../context/AuthContext"
 
 const HomePage = () => {
 

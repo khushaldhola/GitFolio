@@ -15,10 +15,12 @@ const HomePage = () => {
 	const [loading, setLoading] = useState(false);
 
 	const [sortType, setSortType] = useState("recent");
+
+	const { authUser } = useAuthContext();
 	
 	// console.log('here')
 	// console.log(profile)
-	const getUserProfileAndRepos = useCallback(async (username = "github") => {
+	const getUserProfileAndRepos = useCallback(async (username = authUser?.username) => {
 		setLoading(true); 
 		try {
 			const res = await fetch(`/api/users/profile/${username}`);

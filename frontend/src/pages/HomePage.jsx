@@ -70,7 +70,7 @@ const HomePage = () => {
 		setUserProfile(userProfile);
 		setRepos(repos);
 		setLoading(false);
-		setSortType("recent");
+		// setSortType("recent");
 	};
 
 	const onSort = (sortType) => {
@@ -92,7 +92,8 @@ const HomePage = () => {
 	return (
 		<div className='m-4'>
 			<Search onSearch={onSearch} />
-			{repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
+			{/* {repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />} */}
+			{repos.length > 0 && <SortRepos />}
 			<div className='flex gap-4 flex-col lg:flex-row justify-center items-start'>
 				{userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
 				{!loading && <Repos repos={repos}/>}

@@ -1,4 +1,4 @@
-const SortRepos = ({ onSort, sortType, repos }) => {
+const SortRepos = ({ repos }) => {
     if (!repos || repos.length === 0) {
         return <p>No repos available</p>;
     }
@@ -18,7 +18,7 @@ const SortRepos = ({ onSort, sortType, repos }) => {
                     className={`py-2.5 px-5 me-2 mb-2 text-xs sm:text-sm font-medium focus:outline-none rounded-lg bg-glass ${
                         button.type == sortType ? "border-blue-500" : ""
                     }`}
-                    onClick={() => onSort(button.type)}
+                    // onClick={() => onSort(button.type)}
                 >
                     {button.text}
                 </button>
